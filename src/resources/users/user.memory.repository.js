@@ -1,6 +1,23 @@
-const getAll = async () => {
-  // TODO: mock implementation. should be replaced during task development
-  return [];
-};
+const User = require('./user.model');
 
-module.exports = { getAll };
+const USERS = [];
+
+const getAll = async () => USERS;
+const getUserById = async (userId) => (
+  USERS.find( user => (
+    user.id === userId
+  ))
+);
+const createUser = async (schema) => {
+  const { name, login, password } = schema;
+  const newUser = new User({name, login, password});
+  USERS.push(newUser);
+
+  return newUser
+}
+
+module.exports = {
+  getAll,
+  getUserById,
+  createUser,
+};
