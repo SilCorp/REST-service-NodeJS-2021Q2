@@ -60,10 +60,9 @@ const unassignTasksByUserId = async (userId) => {
     task.userId === userId
   ));
 
-  userTasks.forEach( task => {
-    // eslint-disable-next-line no-param-reassign
-    task.userId = null
-  })
+  for (let i = 0; i < userTasks.length; i += 1) {
+    userTasks[i].userId = null;
+  }
 
   return true
 }
