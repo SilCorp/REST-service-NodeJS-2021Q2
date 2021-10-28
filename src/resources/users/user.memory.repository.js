@@ -8,7 +8,7 @@ const getAllUsers = async () => USERS;
 const getUserById = async (userId) => (
   USERS.find( user => (
     user.id === userId
-  ))
+  )) || null
 );
 
 const createUser = async (schema) => {
